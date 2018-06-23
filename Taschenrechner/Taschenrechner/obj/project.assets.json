@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arno\\source\\repos\\Taschenrechner\\Taschenrechner\\Taschenrechner.csproj",
+      "projectUniqueName": "C:\\Users\\arno\\source\\repos\\School\\Taschenrechner\\Taschenrechner\\Taschenrechner.csproj",
       "projectName": "Taschenrechner",
-      "projectPath": "C:\\Users\\arno\\source\\repos\\Taschenrechner\\Taschenrechner\\Taschenrechner.csproj",
+      "projectPath": "C:\\Users\\arno\\source\\repos\\School\\Taschenrechner\\Taschenrechner\\Taschenrechner.csproj",
       "packagesPath": "C:\\Users\\arno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arno\\source\\repos\\Taschenrechner\\Taschenrechner\\obj\\",
+      "outputPath": "C:\\Users\\arno\\source\\repos\\School\\Taschenrechner\\Taschenrechner\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
