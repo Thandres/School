@@ -27,20 +27,27 @@ namespace Taschenrechner
         // berechnet das ergebnis in dem der Eingabe-String nach und nach aufgelöst wird
         // zuerst werden die klammern aufgelöst und danach Punkt vor Strich gerechnet 
         public string returnSolution(string eingabe) {
-           
-            string modifiedInput = eingabe;
-            MatchCollection gemischteZahlen = Regex.Matches(modifiedInput, ZAHL_OHNE_VORZEICHEN_PATTERN);
-            foreach (Match zahl in gemischteZahlen) {
-                modifiedInput= modifiedInput.Replace(zahl.Value, convertToDecimal(zahl.Value));
-            }
-            // Löst alle Klammern 
-            while(Regex.IsMatch(modifiedInput, KLAMMER_PATTERN)) {
-                modifiedInput = braceBasher(modifiedInput);
-            }
+
+            // konvertiert alle Zahlen ins dezimalsystem
+            string modifiedInput = convertNumbers(eingabe);
+            // Löst alle Klammern rekursiv 
+            modifiedInput = braceBasher(modifiedInput);
+            
+            // die Rechnung die jetzt ohne Klammern da steht wird berechnet und danach ind das Ausgabe Format konvertiert
             modifiedInput = berechner.calculateExpressionWithoutBraces(modifiedInput);
             modifiedInput = convertToAllSystems(modifiedInput);
 
             writeHistory(eingabe, modifiedInput);
+            return modifiedInput;
+        }
+
+        private string convertNumbers(string eingabe) {
+            MatchCollection gemischteZahlen = Regex.Matches(eingabe, ZAHL_OHNE_VORZEICHEN_PATTERN);
+            string modifiedInput = eingabe;
+            foreach (Match zahl in gemischteZahlen)
+            {
+                modifiedInput = modifiedInput.Replace(zahl.Value, convertToDecimal(zahl.Value));
+            }
             return modifiedInput;
         }
 
@@ -54,7 +61,14 @@ namespace Taschenrechner
                 string klammerRemoved = klammer.Value.Substring(1,klammer.Value.Length-2);
                 modifiedInput = modifiedInput.Replace(klammer.Value, berechner.calculateExpressionWithoutBraces(klammerRemoved));
             }
-            return modifiedInput;
+            if (Regex.IsMatch(modifiedInput, KLAMMER_PATTERN)) {
+                return braceBasher(modifiedInput);
+            }
+            else
+            {
+                return modifiedInput;
+            }
+            
         }
 
         // Konvertierung einer Zahl in eine dezimalzahl
@@ -115,6 +129,5 @@ namespace Taschenrechner
             }
             Console.WriteLine();
         }
-
     }
 }
