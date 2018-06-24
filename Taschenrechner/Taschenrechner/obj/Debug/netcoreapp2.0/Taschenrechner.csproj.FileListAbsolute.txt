@@ -19,3 +19,4 @@ C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcor
 C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.AssemblyInfo.cs
 C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.dll
 C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.pdb
+C:\Users\arno\Source\Repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.csprojAssemblyReference.cache

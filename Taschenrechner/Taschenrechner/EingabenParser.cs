@@ -27,12 +27,9 @@ namespace Taschenrechner
         // berechnet das ergebnis in dem der Eingabe-String nach und nach aufgelöst wird
         // zuerst werden die klammern aufgelöst und danach Punkt vor Strich gerechnet 
         public string returnSolution(string eingabe) {
-           
-            string modifiedInput = eingabe;
-            MatchCollection gemischteZahlen = Regex.Matches(modifiedInput, ZAHL_OHNE_VORZEICHEN_PATTERN);
-            foreach (Match zahl in gemischteZahlen) {
-                modifiedInput= modifiedInput.Replace(zahl.Value, convertToDecimal(zahl.Value));
-            }
+
+            // konvertiert alle Zahlen ins dezimalsystem
+            string modifiedInput = convertNumbers(eingabe);
             // Löst alle Klammern rekursiv 
             modifiedInput = braceBasher(modifiedInput);
             
@@ -41,6 +38,16 @@ namespace Taschenrechner
             modifiedInput = convertToAllSystems(modifiedInput);
 
             writeHistory(eingabe, modifiedInput);
+            return modifiedInput;
+        }
+
+        private string convertNumbers(string eingabe) {
+            MatchCollection gemischteZahlen = Regex.Matches(eingabe, ZAHL_OHNE_VORZEICHEN_PATTERN);
+            string modifiedInput = eingabe;
+            foreach (Match zahl in gemischteZahlen)
+            {
+                modifiedInput = modifiedInput.Replace(zahl.Value, convertToDecimal(zahl.Value));
+            }
             return modifiedInput;
         }
 
@@ -122,6 +129,5 @@ namespace Taschenrechner
             }
             Console.WriteLine();
         }
-
     }
 }

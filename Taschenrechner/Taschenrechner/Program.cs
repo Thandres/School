@@ -25,7 +25,7 @@ namespace Taschenrechner
                         break;
                     default:
                         if (Regex.Matches(eingabe, "[(]").Count == Regex.Matches(eingabe, "[)]").Count) {
-                            Console.WriteLine(parser.returnSolution(eingabe));
+                            Console.WriteLine(jankParser.returnSolution(eingabe));
                             Console.WriteLine("Nächste Rechnung:");
                         }
                         else
