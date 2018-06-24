@@ -34,6 +34,38 @@ namespace Taschenrechner
             return modifiedInput;
         }
 
+        // Konvertiert die überreichte zahl ins angegebene System. Wenn kein System angegeben ist wird es als Dezimalzahl gehandelt
+        public string convertToDecimal(string zahl, string zSystem)
+        {
+            string dezZahl;
+            switch (zSystem)
+            {
+                case "b":
+                    dezZahl = convertFromBinary(zahl);
+                    break;
+                case "h":
+                    dezZahl = convertFromHex(zahl);
+                    break;
+                case "o":
+                    dezZahl = convertFromOctal(zahl);
+                    break;
+                default:
+                    return zahl;
+            }
+            return dezZahl;
+        }
+
+        // Konvertiert den dezimalen Input in die anderen Zahlensysteme und gibt einen stringArray zurück der die ergebnisse enthält
+        public string[] convertResult(string input)
+        {
+            string ohneVorzeichen = Regex.Match(input, ZAHL_OHNE_vORZEICHEN_PATTERN).Value;
+            string[] resultStringArray = new string[3];
+            resultStringArray[0] = convertToBinary(ohneVorzeichen);
+            resultStringArray[1] = convertToHexadecimal(ohneVorzeichen);
+            resultStringArray[2] = convertToOctal(ohneVorzeichen);
+            return resultStringArray;
+        }
+
         /*
          führt alle Operationen eines Typs in einer übergebenen Rechnung durch und gibt das Ergebnis als verkürzten String zurück
              */
@@ -67,24 +99,7 @@ namespace Taschenrechner
             }
             return input;
         }
-        // Konvertiert die überreichte zahl ins angegebene System. Wenn kein System angegeben ist wird es als Dezimalzahl gehandelt
-        public string convertToDecimal(string zahl, string zSystem) {
-            string dezZahl;
-            switch (zSystem) {
-                case "b":
-                    dezZahl = convertFromBinary(zahl);
-                    break;
-                case "h":
-                    dezZahl = convertFromHex(zahl);
-                    break;
-                case "o":
-                    dezZahl = convertFromOctal(zahl);
-                    break;
-                default:
-                return zahl;
-            }
-            return dezZahl;
-        }
+       
 
         // Teilt Octalzahl in seine Wertigkeiten um und konvertiert dann zu dezimalzahl -> 843 = 1.Wertigkeit: 8 2.Wertigkeit: 4 3.Wertigkeit: 3
         private string convertFromOctal(string zahl)
@@ -151,15 +166,7 @@ namespace Taschenrechner
             return tempDezZahl.ToString();
         }
 
-        public string[] convertResult(string input)
-        {
-            string ohneVorzeichen = Regex.Match(input, ZAHL_OHNE_vORZEICHEN_PATTERN).Value;
-            string[] resultString = new string[3];
-            resultString[0] = convertToBinary(ohneVorzeichen);
-            resultString[1] = convertToHexadecimal(ohneVorzeichen);
-            resultString[2] = convertToOctal(ohneVorzeichen);
-            return resultString;
-        }
+      
         // kann nur ganzzahlige dezimalzahlen konvertieren und rundet nach interner logik
         private string convertToBinary(string dezZahl) {
             int zahl = Convert.ToInt32(Double.Parse((dezZahl)));

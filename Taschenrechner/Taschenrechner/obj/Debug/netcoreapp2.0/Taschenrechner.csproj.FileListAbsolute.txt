@@ -9,3 +9,14 @@ C:\Users\arno\source\repos\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0
 C:\Users\arno\source\repos\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.AssemblyInfo.cs
 C:\Users\arno\source\repos\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.dll
 C:\Users\arno\source\repos\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.pdb
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\bin\Debug\netcoreapp2.0\Taschenrechner.deps.json
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\bin\Debug\netcoreapp2.0\Taschenrechner.runtimeconfig.json
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\bin\Debug\netcoreapp2.0\Taschenrechner.runtimeconfig.dev.json
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\bin\Debug\netcoreapp2.0\Taschenrechner.dll
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\bin\Debug\netcoreapp2.0\Taschenrechner.pdb
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.csproj.CoreCompileInputs.cache
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.AssemblyInfoInputs.cache
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.AssemblyInfo.cs
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.dll
+C:\Users\arno\source\repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.pdb
+C:\Users\arno\Source\Repos\School\Taschenrechner\Taschenrechner\obj\Debug\netcoreapp2.0\Taschenrechner.csprojAssemblyReference.cache
