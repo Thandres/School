@@ -8,7 +8,8 @@ namespace Taschenrechner
         {
             Berechner berechner = new Berechner();
             EingabenParser parser = new EingabenParser(ref berechner);
-            JankParser jankParser = new JankParser(ref berechner);
+            // JankParser jankParser = new JankParser(ref berechner);
+
             userMessage();
             bool quit = false;
             while (!quit)
@@ -25,7 +26,7 @@ namespace Taschenrechner
                         break;
                     default:
                         if (Regex.Matches(eingabe, "[(]").Count == Regex.Matches(eingabe, "[)]").Count) {
-                            Console.WriteLine(jankParser.returnSolution(eingabe));
+                            Console.WriteLine(parser.returnSolution(eingabe));
                             Console.WriteLine("Nächste Rechnung:");
                         }
                         else
