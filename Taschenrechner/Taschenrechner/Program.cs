@@ -8,7 +8,7 @@ namespace Taschenrechner
         {
             Berechner berechner = new Berechner();
             EingabenParser parser = new EingabenParser(ref berechner);
-            JankParser jankParser = new JankParser(ref berechner;)
+            JankParser jankParser = new JankParser(ref berechner);
             userMessage();
             bool quit = false;
             while (!quit)
@@ -24,8 +24,15 @@ namespace Taschenrechner
                         userMessage();
                         break;
                     default:
-                        Console.WriteLine(jankParser.returnSolution(eingabe));
-                        Console.WriteLine("Nächste Rechnung:");
+                        if (Regex.Matches(eingabe, "[(]").Count == Regex.Matches(eingabe, "[)]").Count) {
+                            Console.WriteLine(parser.returnSolution(eingabe));
+                            Console.WriteLine("Nächste Rechnung:");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Es war eine ungerade anzahl an Klammern angegeben");
+                        }
+                        
                         break;
                 }
              

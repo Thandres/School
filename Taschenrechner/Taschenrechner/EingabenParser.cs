@@ -33,10 +33,10 @@ namespace Taschenrechner
             foreach (Match zahl in gemischteZahlen) {
                 modifiedInput= modifiedInput.Replace(zahl.Value, convertToDecimal(zahl.Value));
             }
-            // Löst alle Klammern 
-            while(Regex.IsMatch(modifiedInput, KLAMMER_PATTERN)) {
-                modifiedInput = braceBasher(modifiedInput);
-            }
+            // Löst alle Klammern rekursiv 
+            modifiedInput = braceBasher(modifiedInput);
+            
+            // die Rechnung die jetzt ohne Klammern da steht wird berechnet und danach ind das Ausgabe Format konvertiert
             modifiedInput = berechner.calculateExpressionWithoutBraces(modifiedInput);
             modifiedInput = convertToAllSystems(modifiedInput);
 
@@ -54,7 +54,14 @@ namespace Taschenrechner
                 string klammerRemoved = klammer.Value.Substring(1,klammer.Value.Length-2);
                 modifiedInput = modifiedInput.Replace(klammer.Value, berechner.calculateExpressionWithoutBraces(klammerRemoved));
             }
-            return modifiedInput;
+            if (Regex.IsMatch(modifiedInput, KLAMMER_PATTERN)) {
+                return braceBasher(modifiedInput);
+            }
+            else
+            {
+                return modifiedInput;
+            }
+            
         }
 
         // Konvertierung einer Zahl in eine dezimalzahl

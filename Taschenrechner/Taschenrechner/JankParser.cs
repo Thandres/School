@@ -15,10 +15,12 @@ namespace Taschenrechner
         // calculateExpressionWithoutBraces(string noBraces)
         // convertToDecimal(string zahl, string zSystem)
         // convertResult(string input)
+
         public string returnSolution(string eingabe) {
             string bracesSolved = bracebasher(eingabe);
             return berechner.calculateExpressionWithoutBraces(bracesSolved);
         }
+
         // erst alle offenen klammern indexieren und dann vom höchsten level rekursiv auflösen
         private string bracebasher(string input) {
             SortedList<Tuple<int, int>, int> klammerRangeToKlammerLevelSortedList = scanForBraces(input);
